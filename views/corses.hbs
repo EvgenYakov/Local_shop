@@ -1,0 +1,24 @@
+<h1>Курсы</h1>
+{{#if courses.length}}
+    <div style="display:flex; flex-direction: row ">
+    {{#each courses}}
+        <div class="card" style="width: 18rem; margin: 0 5px">
+            <img src="{{img}}" class="card-img-top" alt="{{title}}">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="price" >{{price}}</p>
+                <div class="d-grid gap-2">
+                <a href="/courses/{{id}}" class="btn btn-primary">Открыть курс</a>
+                <a href="/courses/{{id}}/edit?allow=true" class="btn btn-primary" style="margin-top: 5px">Редактировать</a>
+                <form action="/card/add" method="POST" class="d-grid gap-2"s>
+                    <input type="hidden" value="{{id}}" name="id">
+                    <button type="submit" class="btn btn-success ">Купить</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+{{else}}
+    <p>Курсов нет</p>
+{{/if}}
