@@ -8,10 +8,10 @@
                 <h5 class="card-title">{{title}}</h5>
                 <p class="price" >{{price}}</p>
                 <div class="d-grid gap-2">
-                <a href="/courses/{{id}}" class="btn btn-primary">Открыть курс</a>
-                <a href="/courses/{{id}}/edit?allow=true" class="btn btn-primary" style="margin-top: 5px">Редактировать</a>
-                <form action="/card/add" method="POST" class="d-grid gap-2"s>
-                    <input type="hidden" value="{{id}}" name="id">
+                <a href="/courses/{{_id}}" class="btn btn-primary">Открыть курс</a>
+                <a href="/courses/{{_id}}/edit?allow=true" class="btn btn-primary" style="margin-top: 5px">Редактировать</a>
+                <form action="/card/add" method="POST" class="d-grid gap-2">
+                    <input type="hidden" value="{{_id}}" name="id">
                     <button type="submit" class="btn btn-success ">Купить</button>
                 </form>
                 </div>

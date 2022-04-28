@@ -26,9 +26,15 @@
                     <a class="nav-link btn-primary text-light" href="/add">Добавить курс</a>
                 {{/if}}
                 {{#if isCard}}
-                    <a class="nav-link active  btn-primary text-light" href="/card">Корзина</a>
+                    <a class="nav-link active  btn-primary text-light " href="/card">Корзина</a>
                 {{else}}
                     <a class="nav-link btn-primary text-light" href="/card">Корзина</a>
+                {{/if}}
+
+                {{#if isOrder}}
+                    <a class="nav-link active  btn-primary text-light " href="/orders">Заказы</a>
+                {{else}}
+                    <a class="nav-link btn-primary text-light" href="/orders">Заказы</a>
                 {{/if}}
 
             </div>

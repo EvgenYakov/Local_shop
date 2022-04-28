@@ -1,7 +1,7 @@
 <h1>Корзина</h1>
 
 <div id="card">
-{{#if card.courses.length}}
+{{#if courses.length}}
 
     <table class="table">
         <thead>
@@ -12,7 +12,7 @@
         </tr>
         </thead>
         <tbody>
-        {{#each card.courses}}
+        {{#each courses}}
             <tr>
             <td>{{title}}</td>
             <td>{{count}}</td>
@@ -24,7 +24,11 @@
         </tbody>
     </table>
 
-    <p><strong>Цена:</strong> <span class="price">{{card.price}}</span></p>
+    <p><strong>Цена:</strong> <span class="price">{{price}}</span></p>
+
+    <form action="/orders" method="POST">
+        <button type = "submit" class="btn">Сделать заказ</button>
+    </form>
 {{else}}
 {{/if}}
 </div>
