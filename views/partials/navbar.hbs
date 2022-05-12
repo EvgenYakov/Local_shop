@@ -12,31 +12,38 @@
 
                     <a class="nav-link btn-primary text-light" aria-current="page" href="/">Главная страница</a>
                 {{/if}}
-
-
                 {{#if isCourses}}
                     <a class="nav-link active btn-primary text-light" href="/courses">Курсы</a>
                 {{else}}
                     <a class="nav-link  btn-primary text-light" href="/courses">Курсы</a>
                 {{/if}}
+                {{#if isAuth}}
 
-                {{#if isAdd}}
-                    <a class="nav-link active  btn-primary text-light" href="/add">Добавить курс</a>
-                {{else}}
-                    <a class="nav-link btn-primary text-light" href="/add">Добавить курс</a>
-                {{/if}}
-                {{#if isCard}}
-                    <a class="nav-link active  btn-primary text-light " href="/card">Корзина</a>
-                {{else}}
-                    <a class="nav-link btn-primary text-light" href="/card">Корзина</a>
-                {{/if}}
 
-                {{#if isOrder}}
-                    <a class="nav-link active  btn-primary text-light " href="/orders">Заказы</a>
-                {{else}}
-                    <a class="nav-link btn-primary text-light" href="/orders">Заказы</a>
-                {{/if}}
+                    {{#if isAdd}}
+                        <a class="nav-link active  btn-primary text-light" href="/add">Добавить курс</a>
+                    {{else}}
+                        <a class="nav-link btn-primary text-light" href="/add">Добавить курс</a>
+                    {{/if}}
+                    {{#if isCard}}
+                        <a class="nav-link active  btn-primary text-light " href="/card">Корзина</a>
+                    {{else}}
+                        <a class="nav-link btn-primary text-light" href="/card">Корзина</a>
+                    {{/if}}
 
+                    {{#if isOrder}}
+                        <a class="nav-link active  btn-primary text-light " href="/orders">Заказы</a>
+                    {{else}}
+                        <a class="nav-link btn-primary text-light" href="/orders">Заказы</a>
+                    {{/if}}
+                    <a class="nav-link btn-primary " href ="/auth/logout">выйти</a>
+                {{else}}
+                    {{#if isLogin}}
+                        <a class="nav-link active  btn-primary text-light " href="/auth/login">Авторизация</a>
+                    {{else}}
+                        <a class="nav-link btn-primary text-light" href="/auth/login">Авторизация</a>
+                    {{/if}}
+                {{/if}}
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@ const {Router} = require("express");
 const router = Router();
 const Course = require('../models/course');
 const User = require('../models/user')
+const auth = require("../middleware/auth");
 
 function sumPrice(courses){
     return courses.reduce((sum,obj) => {
@@ -23,12 +24,9 @@ router.post('/add',async (req,res)=>{
     res.redirect('/card')
 })
 
-router.get('/',async (req,res)=>{
-    const user = await req.user.populate('cart.items.courseId')
+router.get('/',auth,async (req,res)=>{
+    const user = await req.user.populate('cart.items.courseId');
     const courses = mapCartItems(user.cart)
-
-    console.log(courses);
-
     res.render('card',{
         title: "Корзина",
         isCard:true,

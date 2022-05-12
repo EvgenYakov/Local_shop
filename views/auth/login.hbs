@@ -1,0 +1,55 @@
+<div style="margin-left: 25%;  text-align: center; width: 50%">
+    <ul class="nav nav-tabs justify-content-end" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab"  aria-selected="true">Вход</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register"  type="button" role="tab" aria-selected="false">Регистрация</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+            <main class="log-form">
+                <form action="/auth/login" method="POST">
+                    <h1 class="h3 mb-3 fw-normal">Войдите</h1>
+                    <div class="form-floating">
+                        <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" style="margin:10px 0">
+                        <label for="floatingPassword">Пароль</label>
+                    </div>
+                    <input type="hidden" name="_csrf" value="{{csrf}}">
+                    <button class="w-50 btn btn-lg btn-primary" type="submit">Войти</button>
+                </form>
+            </main>
+        </div>
+
+        <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+            <main class="log-form">
+                <form action="/auth/register" method="POST">
+                    <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
+                    <div class="form-floating">
+                        <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" name="name" placeholder="name" style="margin:10px 0">
+                        <label for="floatingInput">Имя</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" style="margin:10px 0">
+                        <label for="floatingPassword">Пароль</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" name="repeat" id="floatingPassword" placeholder="Password" style="margin:10px 0">
+                        <label for="floatingPassword">Введите пароль ещё раз</label>
+                    </div>
+                    <input type="hidden" name="_csrf" value="{{csrf}}">
+                    <button class="w-75 btn btn-lg btn-primary" type="submit">Зарегестрироваться</button>
+                </form>
+            </main>
+        </div>
+    </div>
+</div>

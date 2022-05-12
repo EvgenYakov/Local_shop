@@ -8,6 +8,20 @@ function salecreate(price) {                // функция преобразо
         node.textContent =salecreate(node.textContent)
     })
 
+function toDate (date) {
+    return new Intl.DateTimeFormat('ru-RU',{
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+    }).format(new Date(date))
+}
+
+document.querySelectorAll('.date').forEach(node =>{
+    node.textContent = toDate(node.textContent);
+})
 
 const $card = document.querySelector('#card')
 if ($card){
@@ -15,8 +29,12 @@ if ($card){
         console.log(event);
         if (event.target.classList.contains('js-remove')){ // динамическое изменение страницы после удаления
             const id = event.target.dataset.id;
+            const csrf = event.target.dataset.csrf;
             fetch('/card/remove/' + id,{
-                method:'delete'
+                method:'delete',
+                headers:{
+                    'X-XSRF-TOKEN':csrf
+                }
             }).then(res => res.json())
                 .then(card =>{
                 console.log(card)

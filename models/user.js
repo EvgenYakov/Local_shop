@@ -6,7 +6,8 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    name:{
+    name: String,
+    password:{
         type: String,
         required: true
     },
@@ -57,6 +58,11 @@ userSchema.methods.removeFromCart = function (id){
         items[idx].count--
     }
     this.cart ={items};
+    return this.save();
+}
+
+userSchema.methods.clearCart = function (){
+    this.cart = {items:[]}
     return this.save();
 }
 
